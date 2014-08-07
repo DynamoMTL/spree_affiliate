@@ -1,22 +1,43 @@
-Spree Affiliate
-===============
-Allows customers to refer friends and earn store credit for each user who registers and/or orders.
+SpreeAffiliate
+==============
 
-You can also give store credit to the refered friends on signup and after first order.
+Introduction goes here.
 
 Installation
-============
+------------
 
-1. Add to Gemfile:
+Add spree_affiliate to your Gemfile:
 
-        gem "spree_store_credits"
-        gem "spree_affiliate"
+```ruby
+gem "spree_store_credits"
+gem "spree_affiliate"
 
-1. Run `bundle install`
-1. Run install rake task for all extensions:
+```
+>>>>>>> 5ac6d5c1972c684ccc4cbe437bf7a49b1c1d9d7d
 
-        rake spree_store_credits:install
-        rake spree_affiliate:install
+Bundle your dependencies and run the installation generator:
 
-1. Run `rake db:migrate`
+```shell
+bundle
+bundle exec rails g spree_affiliate:install
+```
 
+Testing
+-------
+
+Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
+
+```shell
+bundle
+bundle exec rake test_app
+bundle exec rspec spec
+```
+
+When testing your applications integration with this extension you may use it's factories.
+Simply add this require statement to your spec_helper:
+
+```ruby
+require 'spree_affiliate/factories'
+```
+
+Copyright (c) 2013 [name of extension creator], released under the New BSD License
