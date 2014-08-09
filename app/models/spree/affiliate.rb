@@ -7,6 +7,9 @@ class Spree::Affiliate < ActiveRecord::Base
   has_many :events,
     class_name: 'Spree::AffiliateEvent'
 
+  accepts_nested_attributes_for :partner  
+  
+
   def name
     I18n.t(:affiliate_program)
   end
