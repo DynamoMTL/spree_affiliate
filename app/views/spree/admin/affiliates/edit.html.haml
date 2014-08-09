@@ -12,3 +12,15 @@
     = render :partial => 'form', :locals => { :f => f }
     .clear
     = render :partial => 'spree/admin/shared/edit_resource_links'
+
+
+%h1.page-title Referred Users
+%br
+%table.index
+  %thead
+    %tr
+      %th Name
+  %tbody
+    - @affiliate.partner.referred_users.each do |user|
+      %tr
+        %td= link_to user.full_name, spree.edit_admin_user_path(user)

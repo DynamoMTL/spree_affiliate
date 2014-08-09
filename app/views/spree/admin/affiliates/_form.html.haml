@@ -14,8 +14,8 @@
           .field
             = partner_form.label :password, t(:password)
             = partner_form.text_field :password, :class => 'fullwidth'                    
-        .alpha.twelve.columns          
-          .field
-            = partner_form.label :locked_at, t(:active)
-            = partner_form.check_box :locked_at, :class => 'fullwidth'          
+        .alpha.twelve.columns                    
+          .field            
+            = f.label :active, t(:active)
+            = f.check_box :active, :class => 'fullwidth'          
   .clear

@@ -18,7 +18,7 @@
     %thead
       %tr
         %th= Spree.t(:name)
-        %th= Spree.t(:referred_users)
+        %th= Spree.t(:total_referred_users)
         %th= Spree.t(:active)
         %th.actions
     %tbody
@@ -26,12 +26,8 @@
         - partner = affiliate.partner
         %tr{class: cycle('odd', 'even'), id: spree_dom_id(affiliate)}
           %td= partner.full_name
-          %td.align-center
-            - partner.referred_users.each do |user|
-              = user.full_name
-              %br
-          %td.align-center
-            = partner.locked_at == nil ? 'Yes' : 'No'
+          %td.align-center= partner.referred_users.count              
+          %td.align-center= partner.locked_at == nil ? 'Yes' : 'No'
           %td.actions
             = link_to_edit affiliate, :no_text => true
             = link_to_delete affiliate, :no_text => true
