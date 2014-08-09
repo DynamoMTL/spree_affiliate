@@ -32,7 +32,7 @@
         - partner = affiliate.partner
         %tr{class: cycle('odd', 'even'), id: spree_dom_id(affiliate)}
           %td= link_to partner.full_name, spree.edit_admin_affiliate_path(affiliate)
-          %td.align-center
+          %td.align-center= partner.num_referrals
           %td.align-center= partner.referred_users.count              
           %td.align-center= partner.referred_users.select{ |u| u.orders.complete.count > 0 }.count              
           %td.align-center= partner.locked_at == nil ? 'Yes' : 'No'
