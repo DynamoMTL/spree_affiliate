@@ -10,16 +10,18 @@
   %table.index
     %colgroup
       %col{style: "width: 25%"}
-      %col{style: "width: 15%"}
-      %col{style: "width: 15%"}
-      %col{style: "width: 25%"}      
+      %col{style: "width: 20%"}
+      %col{style: "width: 10%"}
+      %col{style: "width: 10%"}
       %col{style: "width: 20%"}      
+      %col{style: "width: 15%"}      
     %thead
       %tr
         %th= Spree.t(:name)
         %th= Spree.t(:total_referred_users)
         %th= Spree.t(:active)
-        %th= Spree.t(:affiliate_id)
+        %th= Spree.t(:credits)
+        %th= Spree.t(:affiliate_id_and_url)
         %th.actions
     %tbody
       - @affiliates.each do |affiliate|
@@ -28,6 +30,7 @@
           %td= link_to partner.full_name, spree.edit_admin_affiliate_path(affiliate)
           %td.align-center= partner.referred_users.count              
           %td.align-center= partner.locked_at == nil ? 'Yes' : 'No'
+          %td.align-center= number_to_currency partner.store_credits_total
           %td.align-center= link_to affiliate.ref_id, "http://#{Spree::Config.site_url}/?ref_id=#{affiliate.ref_id}", { target: '_blank'}
           %td.actions
             = link_to_edit affiliate, :no_text => true

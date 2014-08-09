@@ -5,7 +5,7 @@
 
 - content_for :page_actions do
   %li
-    = button_link_to t(:affiliates), spree.admin_affiliate_path, :icon => 'icon-arrow-left'
+    = button_link_to t(:affiliates), spree.admin_affiliates_path, :icon => 'icon-arrow-left'
 = render :partial => 'spree/shared/error_messages', :locals => { :target => @affiliate }
 = form_for [:admin, @affiliate] do |f|
   %fieldset.no-border-top
@@ -17,10 +17,15 @@
 %h1.page-title Referred Users
 %br
 %table.index
+  %colgroup
+    %col{style: "width: 70%"}
+    %col{style: "width: 30%"}
   %thead
     %tr
       %th Name
+      %th Total Orders
   %tbody
     - @affiliate.partner.referred_users.each do |user|
       %tr
         %td= link_to user.full_name, spree.edit_admin_user_path(user)
+        %td.align-center= user.orders.complete.count
