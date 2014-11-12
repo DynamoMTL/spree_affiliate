@@ -22,4 +22,9 @@ Spree::User.class_eval do
   def self.find_by_ref_id(ref_id)
     Spree::User.find(ref_id.to_s.reverse)
   end
+
+  def is_affiliate
+    Spree::Affiliate.exists?(partner:self)
+  end  
+  
 end
