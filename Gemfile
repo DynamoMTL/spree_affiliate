@@ -4,10 +4,14 @@ gem 'haml-rails'
 
 gem 'spree_auth_devise',
   github: 'spree/spree_auth_devise',
-  branch: '2-2-stable'
+  branch: '2-4-stable'
 
 gem 'spree_store_credits',
   github: 'spree/spree_store_credits',
   branch: '2-2-stable'
+
+gem 'spree_core',
+  github: 'spree/spree',
+  branch: '2-4-stable'
 
 gemspec
